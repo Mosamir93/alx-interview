@@ -4,7 +4,7 @@ operations needed to result in exactly n H characters in the file."""
 from math import sqrt
 
 
-def  minOperations(n):
+def minOperations(n):
     """This is a method that calculates the fewest number of operations
     needed to result in exactly n H characters in the file."""
     if n <= 1:
