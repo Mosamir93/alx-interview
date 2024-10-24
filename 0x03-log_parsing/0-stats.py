@@ -22,8 +22,8 @@ try:
         line.split()
         if len(line) > 4:
             try:
-                status_code = int(match.group('status'))
-                file_size = int(match.group('size'))
+                status_code = int(line[-2])
+                file_size = int(line[-1])
                 line_count += 1
                 total_size += file_size
                 if status_code in status_codes:
