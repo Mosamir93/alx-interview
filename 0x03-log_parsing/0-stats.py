@@ -19,24 +19,25 @@ line_count = 0
 
 try:
     for line in sys.stdin:
-        line.split()
+        line = line.split(" ")
         if len(line) > 4:
             try:
-                status_code = int(line[-2])
+                status_code = (line[-2])
                 file_size = int(line[-1])
                 line_count += 1
                 total_size += file_size
                 if status_code in status_codes:
                     status_codes[status_code] += 1
+                if line_count == 10:
+                    line_count = 0
+                    print("File size: {}".format(total_size))
+                    for key, value in sorted(status_codes.items()):
+                        if value > 0:
+                            print("{}: {}".format(key, value))
 
             except Exception:
-                continue
-            if line_count == 10:
-                line_count = 0
-                print("File size: {}".format(total_size))
-                for key, value in sorted(status_codes.items()):
-                    if value > 0:
-                        print("{}: {}".format(key, value))
+                pass
+
 except KeyboardInterrupt:
     print("File size: {}".format(total_size))
     for key, value in sorted(status_codes.items()):
