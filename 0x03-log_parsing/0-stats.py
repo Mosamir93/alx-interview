@@ -27,7 +27,6 @@ line_count = 0
 
 try:
     for line in sys.stdin:
-        line_count += 1
         match = log_pattern.match(line)
         if not match:
             continue
@@ -35,6 +34,7 @@ try:
         try:
             status_code = int(match.group('status'))
             file_size = int(match.group('size'))
+            line_count += 1
             total_size += file_size
             if status_code in status_codes:
                 status_codes[status_code] += 1
