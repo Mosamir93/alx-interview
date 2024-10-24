@@ -43,12 +43,12 @@ try:
             continue
         if line_count == 10:
             line_count = 0
-            print(f"File size: {total_size}")
+            print("File size: {}".format(total_size))
             for key, value in sorted(status_codes.items()):
                 if value > 0:
-                    print(f"{key}: {value}")
+                    print("{}: {}".format(key, value))
 except KeyboardInterrupt:
-    print(f"File size: {total_size}")
+    print("File size: {}".format(total_size))
     for key, value in sorted(status_codes.items()):
         if value > 0:
-            print(f"{key}: {value}")
+            print("{}: {}".format(key, value))
